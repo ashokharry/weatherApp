@@ -1,12 +1,12 @@
 Built With
 
-Java 8 - Code Language
-Spring Boot 2 - Web Framework used
-Maven - Build Tool
+* Java 8 - Code Language
+* Spring Boot 2 - Web Framework used
+* Maven - Build Tool
 
 Testing
-Junit
-WireMock
+* Junit
+* WireMock
 
 Using an IDE
 1. git clone https://github.com/ashokharry/weatherApp.git
