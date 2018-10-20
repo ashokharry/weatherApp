@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+<body>
+
+<img src="Widgets-header-logo-weather.png">
+
+<p>Select City</p>
+
+<select id="mySelect" onchange="myFunction()">
+    <option value="" selected disabled hidden>Select</option>
+    <option value="London">London</option>
+    <option value="Hong%20Kong">Hong Kong</option>
+</select>
+
+<br>
+<p>Weather Report</p>
+<table border="1">
+    <tr>
+        <th>Date</th>
+        <th>City</th>
+        <th>Weather Description</th>
+        <th>Tempreture in F</th>
+        <th>Tempreture in C</th>
+        <th>Sunrise</th>
+        <th>Sunset</th>
+    </tr>
+
+</table>
+
+</body>
+
+<script>
+function myFunction() {
+    var city = document.getElementById("mySelect").value;
+    var uri = "/weather-details/city/"+city;
+    var tr;
+
+    $.getJSON(uri, function(data) {
+            tr = $('<tr/>');
+            tr.append("<td>" + data.todaysDate + "</td>");
+            tr.append("<td>" + data.cityName + "</td>");
+            tr.append("<td>" + data.weatherDescription + "</td>");
+            tr.append("<td>" + data.tempretureFahrenheit + "</td>");
+            tr.append("<td>" + data.tempretureCelsius + "</td>");
+            tr.append("<td>" + data.sunriseTime + "</td>");
+            tr.append("<td>" + data.sunsetTime + "</td>");
+
+            $('table').append(tr);
+        });
+}
+</script>
+</html>
